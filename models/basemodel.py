@@ -523,10 +523,6 @@ class BaseModel(nn.Module):
                                         ": {0: .4f}".format(epoch_logs["test_" + name + "_" + self.task_names[i]])
             print(eval_str)
 
-        if method == 'uncertainty':
-            print("uncertainty weights", weights.data.cpu().numpy())
-
-
         return self.history
 
     def evaluate(self, x, y, batch_size=256):
