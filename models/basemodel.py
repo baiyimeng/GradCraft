@@ -293,7 +293,7 @@ class BaseModel(nn.Module):
             else:
                 return optimizer
 
-        optim = customized_optimizer(method=method, optimizer=optim, num_tasks=self.num_tasks, hyper=hyper, device=device)
+        optim = customized_optimizer(method=method, optimizer=optim, num_tasks=self.num_tasks, hyper=hyper, device=self.device)
 
         # optimization
         for epoch in range(initial_epoch, epochs):
