@@ -158,10 +158,23 @@ class GlobalPCGradMagnitudePositive():
         - has_grad: a list of mask represent whether the parameter has gradient
         '''
 
+        # the gradient of redundant parameters remains None
+        # the gradient of shared and current specific parameters can be obtained through backward propagation and is nonzero
+        # the gradient of other specific parameters can be obtained through backward propagation and is zero 
+
+        # Example
+        # import torch
+        # x = torch.tensor(1., requires_grad=True)
+        # y = torch.tensor([2., 3.], requires_grad=True)
+        # z = x + y[0]
+        # z.backward()
+        # print(y.grad)
+        # tensor([1., 0.])
+        
         grads, shapes, has_grads = [], [], []
         for obj in objectives:
-            self._optim.zero_grad(set_to_none=False)
-            obj.backward(retain_graph=True)
+            self._optim.zero_grad(set_to_none=False)  # None -> None, Not None -> Zero
+            obj.backward(retain_graph=True)  # 
             grad, shape, has_grad = self._retrieve_grad()
             grads.append(self._flatten_grad(grad, shape))
             has_grads.append(self._flatten_grad(has_grad, shape))
