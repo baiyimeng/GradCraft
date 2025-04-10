@@ -8,7 +8,7 @@ This is the pytorch implementation of our paper at KDD 2024:
 ## Usage
 ### Data
 The experimental datasets are available for download via the link provided in the file located at `/data/download.txt`.
-### Training
+### Training & Evaluation
 This project is built on top of [DeepCTR-Torch](https://github.com/shenweichen/DeepCTR-Torch).
 
 To use `ray.tune` for hyperparameter tuning in a multi-task setting, you must replace the original `experiment_analysis.py` with the customized version provided in this repo.
