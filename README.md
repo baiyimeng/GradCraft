@@ -1,5 +1,6 @@
 # GradCraft
 [![arXiv](https://img.shields.io/badge/arXiv-2407.19682-red.svg)](https://arxiv.org/abs/2407.19682)
+
 This is the pytorch implementation of our paper at KDD 2024:
 > [GradCraft: Elevating Multi-task Recommendations through Holistic Gradient Crafting](https://arxiv.org/abs/2407.19682)
 > 
